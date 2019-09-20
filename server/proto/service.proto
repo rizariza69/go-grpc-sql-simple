@@ -1,0 +1,24 @@
+syntax= "proto3";
+
+package proto;
+
+service CRUD {
+  rpc Create(Student) returns(StudentID){}
+  rpc Read(StudentID) returns(Student){}
+  rpc Update(Student) returns (StudentID){}
+  rpc Delete(StudentID) returns(StudentID){}
+}
+
+message Student {
+  int64 Id = 1;
+  string Name = 2;
+  int32 Grade = 3;
+}
+
+message StudentID {
+  int64 Id = 1;
+}
+
+message StudentAll {
+	repeated Student Students
+}
